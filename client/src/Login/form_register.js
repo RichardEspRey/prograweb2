@@ -2,6 +2,7 @@ import "./form_login.css";
 import {useState} from "react"
 import bagImage from './icons/bag.png';
 import Axios from "axios";
+
 function Form_register() {
   const [nombre,setNombre] = useState("");
   const [correo,setCorreo] = useState("");
@@ -10,6 +11,10 @@ function Form_register() {
 
   const add = ()=>{
     Axios.post("http://localhost:3001/create",{
+      nombre:nombre,
+      correo:correo,
+      password:password,
+      tipo:tipo
       
     }).then(()=>{
       alert("Empleado Registrado");
@@ -26,7 +31,7 @@ return (
             <label>Nombre</label>
           </div>
           <div>
-            <input class="Elements" type="text" id="Nombre" onChange={(event)=>{
+            <input className="Elements" type="text" id="Nombre" onChange={(event)=>{
               setNombre(event.target.value);
               }}></input>
           </div>
@@ -34,7 +39,7 @@ return (
             <label>Numero de celular o Correo</label>
           </div>
           <div>
-            <input class="Elements" type="text" id="Email" onChange={(event)=>{
+            <input className="Elements" type="text" id="Email" onChange={(event)=>{
               setCorreo(event.target.value);
               }}></input>
           </div>
@@ -50,15 +55,15 @@ return (
             <label>Contraseña</label>
           </div>
           <div>
-            <input class="Elements" type="text" id="password" onChange={(event)=>{
+            <input className="Elements" type="text" id="password" onChange={(event)=>{
               setPassword(event.target.value);
               }}></input>
           </div>
-          <input class="button" type="submit" id="submit" value="Continuar"></input>
+          <input className="button" type="submit" id="submit" value="Continuar" onClick={add}></input>
 
           <label>¿Eres nuevo en shopping express?</label>
-            <div class="separator"></div>
-            <button type="submit" onClick={add}>Crear tu cuenta</button>
+            <div className="separator"></div>
+            <button type="submit" >Login</button>
         </div>
       
     
