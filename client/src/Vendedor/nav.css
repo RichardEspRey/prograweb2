@@ -1,0 +1,23 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+nav{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+}
+.Menu_botones{
+
+    margin-top: 10px;
+    margin-left: 20px; 
+}
+a{
+    color: inherit; /* Hereda el color del texto del elemento padre */
+    text-decoration: none; /* Elimina el subrayado o delineado */
+    font-size: 18px;
+    
+}

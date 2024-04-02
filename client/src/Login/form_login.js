@@ -2,6 +2,7 @@ import "./form_login.css";
 import {useState} from "react"
 import axios from "axios";
 import bagImage from './icons/bag.png';
+import { Link } from "react-router-dom";
 function Form_login() {
   const [correo,setCorreo] = useState("");
   const [password,setPassword] = useState("");
@@ -34,11 +35,14 @@ return (
           <input class="button" type="submit" id="password" value="Continuar"></input>
           <label>¿Eres nuevo en shopping express?</label>
       <div class="separator"></div>
-      <button type="submit">Crear tu cuenta</button>
-        </div>
+        <Link to="/register">
+          <button type="submit">Crear tu cuenta</button>
+        </Link>
+            
       
-    
-    </div>
+      </div>
+      
+  </div>
     
 
 );

@@ -2,22 +2,25 @@ import "./form_login.css";
 import {useState} from "react"
 import bagImage from './icons/bag.png';
 import Axios from "axios";
-
+import { Link } from "react-router-dom";
 function Form_register() {
   const [nombre,setNombre] = useState("");
-  const [correo,setCorreo] = useState("");
+  const [email,setCorreo] = useState("");
   const [password,setPassword] = useState("");
   const [tipo,setTipo] = useState("");
 
   const add = ()=>{
     Axios.post("http://localhost:3001/create",{
       nombre:nombre,
-      correo:correo,
+      email:email,
       password:password,
       tipo:tipo
       
     }).then(()=>{
       alert("Empleado Registrado");
+      window.location.replace('http://localhost:3000/login');
+    }).catch(error=>{
+      alert("Error al registrar el usuario");
     });
   }
 return (
@@ -60,17 +63,15 @@ return (
               }}></input>
           </div>
           <input className="button" type="submit" id="submit" value="Continuar" onClick={add}></input>
-
           <label>¿Eres nuevo en shopping express?</label>
             <div className="separator"></div>
-            <button type="submit" >Login</button>
+            <Link to="/login">
+              <button type="submit" >Login</button>
+            </Link>
+            
         </div>
-      
-    
     </div>
-    
-
-);
+  );
 }
 
 export default Form_register;
