@@ -8,10 +8,16 @@ function Nav(){
                 <Link to="/catalogo">Catalogo</Link>
             </div>
             <div className="Menu_botones">
+              <a>Añadir producto</a>
+            </div>
+            <div className="Menu_botones">
               <a>Inventario</a>
             </div>
             <div className="Menu_botones">
                 <a>Pedidos</a>  
+            </div>
+            <div className="Menu_botones">
+              <a>Mensajes</a>
             </div>
             <div className="Menu_botones">
                 <a>Mi perfil</a>
