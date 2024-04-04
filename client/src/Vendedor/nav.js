@@ -4,6 +4,7 @@ import "./nav.css";
 function Nav(){
     return(
         <nav>
+
             <div className="Menu_botones">
                 <Link to="/catalogo">Catalogo</Link>
             </div>
