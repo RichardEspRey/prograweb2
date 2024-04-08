@@ -25,7 +25,7 @@ function Form_register() {
   }
 return (
     <div className="form_login">
-        <div className="conteiner">
+      <div className="contenedor">
         <img src={bagImage} alt="Imagen de una bolsa" width="35%" />
           <div>
             <h1>Crear cuenta</h1>
@@ -69,7 +69,7 @@ return (
               <button type="submit" >Login</button>
             </Link>
             
-        </div>
+      </div>
     </div>
   );
 }

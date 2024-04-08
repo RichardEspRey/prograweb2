@@ -9,7 +9,7 @@ function Nav(){
                 <Link to="/catalogo">Catalogo</Link>
             </div>
             <div className="Menu_botones">
-              <a>Añadir producto</a>
+                <Link to="/addProd">Añadir producto</Link>
             </div>
             <div className="Menu_botones">
               <a>Inventario</a>

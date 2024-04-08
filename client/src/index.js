@@ -16,7 +16,7 @@ root.render(
 
   //*<React.StrictMode>
   
-  //<Formregister/>
+  //
     
   //</React.StrictMode>
 );
