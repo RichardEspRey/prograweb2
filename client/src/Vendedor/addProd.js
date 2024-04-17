@@ -1,14 +1,29 @@
-import React from 'react';
+import React , { useState }from 'react';
 import "./addProd.css";
 function AddProd(){
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const handleImageChange = (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          setSelectedImage(event.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    };
     return(
 
         <div className='producto'>
             <div className='contenedor-producto'>
-                <h2>Imagen del producto</h2>
+                <h2>Añadir producto</h2>
+            {selectedImage && (
+                <img src={selectedImage} alt="Selected" style={{ maxWidth: '200px', maxHeight:'200px'}} />
+            )}
                 <div className='group-labels'>
                     <label for="img">Select image:</label>
-                    <input type="file" id="img" name="img" accept="image/*"/>
+                    <input type="file" id="img" name="img" accept="image/*" onChange={handleImageChange}/>
                 </div>
                 
                 <div className='group-labels'>
@@ -38,12 +53,18 @@ function AddProd(){
                 
                 <div className='group-labels'>
                     <label>Acerca de:</label>
-                    <input type="text"></input>
+                    <textarea name="postContent" rows={4} cols={40} />
                 </div>
                
             </div>
-            <button type="submit" >Cancelar</button>
-            <button type="submit" >Guardar</button>
+            <div className='buttons-down'>
+                <div className='botones'>
+                    <button type="submit" >Cancelar</button>
+                    <button type="submit" >Guardar</button>
+                </div>
+            </div>
+            
+            
         </div>
 
         

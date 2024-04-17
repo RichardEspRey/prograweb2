@@ -12,19 +12,35 @@ const db = mysql.createConnection({
 });
 
 app.post("/create",(req,resp)=>{
+    const op = "I"; // Operación a realizar (I para inserción)
+    const id = null; // ID del usuario (solo se usa para la opción S de selección)
     const nombre = req.body.nombre;
     const email = req.body.email;
     const password = req.body.password;
     const tipo = req.body.tipo;
-    db.query('INSERT INTO users(nombre,email,password,tipo)values(?,?,?,?)',[nombre,email,password,tipo],
-    (err,result)=>{
-        if(err){
-            console.log(err);
+    db.query('CALL pUser(?, ?, ?, ?, ?, ?)', [op, id, nombre, email, password, tipo], (err, result) =>{
+        if(result[0][0].resp === 1){
+            console.log(result[0][0].resp);
+            resp.send({message:"Empleado registrado con éxito",id:1});// Envio de respuesta del servidor a mi componente
         }else{
-            resp.send("Empleado registrado con éxito");
+            console.log(result[0][0].resp);
+            resp.send({message:"Error en el registro, correo ya registrado",id:0});
+
         }
-    }
-    );
+    });
+}); 
+app.post("/login",(req,resp)=>{
+    const op = "S"; // Operación a realizar (I para inserción)
+    const id = null; // ID del usuario (solo se usa para la opción S de selección)
+    const nombre = null;
+    const email = req.body.correo;
+    const password = req.body.password;
+    const tipo = null;
+    db.query('CALL pUser(?, ?, ?, ?, ?, ?)', [op, id, nombre, email, password, tipo], (err, result) =>{
+  
+        console.log(result[0][0].nombre+result[0][0].userID);
+         
+    });
 }); 
 
 app.listen(3001,()=>{

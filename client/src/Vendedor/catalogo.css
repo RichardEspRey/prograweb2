@@ -13,7 +13,9 @@
     border-color: #41414145;
     border-width: .5px;
 }
-
+.buscador_catalogo img{
+    margin: 30px 0 0 50px;
+}
 .conteiner{
     width: 800px;
     margin: 0 auto;

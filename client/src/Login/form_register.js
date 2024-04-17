@@ -16,11 +16,18 @@ function Form_register() {
       password:password,
       tipo:tipo
       
-    }).then(()=>{
-      alert("Empleado Registrado");
-      window.location.replace('http://localhost:3000/login');
+    }).then(response => {
+      
+      if(response.data.id==1){
+        console.log(response.data.id)
+        alert(response.data.message);
+      }else{
+        console.log(response.data.id)
+        alert(response.data.message);
+      }
+       // Muestra el mensaje enviado desde el servidor
     }).catch(error=>{
-      alert("Error al registrar el usuario");
+      alert("Error con la comuniacion con el servidor");
     });
   }
 return (
@@ -47,7 +54,7 @@ return (
               }}></input>
           </div>
           <div>
-            <select name="Tipo" onChange={(event)=>{
+            <select className ="option" name="Tipo" onChange={(event)=>{
               setTipo(event.target.value);
               }}>
               <option value="Comprador">Comprador</option>
@@ -66,7 +73,7 @@ return (
           <label>¿Eres nuevo en shopping express?</label>
             <div className="separator"></div>
             <Link to="/login">
-              <button type="submit" >Login</button>
+              <button className="button" type="submit" >Login</button>
             </Link>
             
       </div>
