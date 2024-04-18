@@ -19,8 +19,10 @@ function Form_register() {
     }).then(response => {
       
       if(response.data.id==1){
+        //en dado caso de que si se haya hecho con exito el registro
         console.log(response.data.id)
         alert(response.data.message);
+        window.location.replace('http://localhost:3000/login');//provicional, cambiar a history para uso completo de las funciones de ract
       }else{
         console.log(response.data.id)
         alert(response.data.message);

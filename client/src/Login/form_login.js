@@ -13,15 +13,18 @@ function Form_login() {
       password:password
      
     }).then(response => {
-      console.log("Hola");
-      console.log(password);
-      /*if(response.data.id==1){
-        console.log(response.data.id)
+      if(response.data.exist==1){
+        console.log(response.data.userID)
         alert(response.data.message);
+        if (response.data.tipo == "Vendedor"){
+            window.location.replace('http://localhost:3000/inicio');
+        }else{
+
+        }
       }else{
-        console.log(response.data.id)
+        console.log(response.data.userID)
         alert(response.data.message);
-      }*/
+      }
        // Muestra el mensaje enviado desde el servidor
     }).catch(error=>{
       alert("Error con la comuniacion con el servidor");
