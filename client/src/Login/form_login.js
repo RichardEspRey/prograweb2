@@ -3,6 +3,7 @@ import {useState} from "react"
 import Axios from "axios";
 import bagImage from './icons/bag.png';
 import { Link } from "react-router-dom";
+import Cookies from 'js-cookie';
 function Form_login() {
   const [correo,setCorreo] = useState("");
   const [password,setPassword] = useState("");
@@ -17,6 +18,7 @@ function Form_login() {
         console.log(response.data.userID)
         alert(response.data.message);
         if (response.data.tipo == "Vendedor"){
+            Cookies.set('session_UserID', response.data.userID);
             window.location.replace('http://localhost:3000/inicio');
         }else{
 

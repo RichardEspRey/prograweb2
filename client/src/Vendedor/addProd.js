@@ -1,8 +1,10 @@
 import React , { useState }from 'react';
 import "./addProd.css";
+import Cookies from 'js-cookie';
 function AddProd(){
     const [selectedImage, setSelectedImage] = useState(null);
-
+    const sessionId = Cookies.get('session_UserID');
+    console.log(sessionId);
     const handleImageChange = (e) => {
       const file = e.target.files[0];
       if (file) {
