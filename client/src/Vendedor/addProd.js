@@ -1,10 +1,9 @@
 import React , { useState }from 'react';
-import "./addProd.css";
+import "./css/addProd.css";
 import Cookies from 'js-cookie';
 function AddProd(){
     const [selectedImage, setSelectedImage] = useState(null);
     const sessionId = Cookies.get('session_UserID');
-    console.log(sessionId);
     const handleImageChange = (e) => {
       const file = e.target.files[0];
       if (file) {
@@ -24,7 +23,7 @@ function AddProd(){
                 <img src={selectedImage} alt="Selected" style={{ maxWidth: '200px', maxHeight:'200px'}} />
             )}
                 <div className='group-labels'>
-                    <label for="img">Select image:</label>
+                    <label htmlFor="img">Select image:</label>
                     <input type="file" id="img" name="img" accept="image/*" onChange={handleImageChange}/>
                 </div>
                 

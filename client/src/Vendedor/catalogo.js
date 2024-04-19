@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import'./catalogo.css';
+import'./css/catalogo.css';
 import box from './icons/box.png';
 function Catalogo(){
     return(

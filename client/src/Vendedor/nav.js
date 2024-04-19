@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
-import "./nav.css";
+import "./css/nav.css";
+import "./css/nav.css";
+import { verificarUsuario } from '../Librerias/functions'; 
+import Cookies from 'js-cookie';
 function Nav(){
+  
+    useEffect(() => {
+        verificarUsuario();
+    }, []);
+    const cerrar_sesion = () => {
+      Cookies.remove('session_UserID');
+      window.location.replace('http://localhost:3000/login');
+    };
     return(
         <nav>
 
@@ -27,7 +38,7 @@ function Nav(){
                 <a>Ayuda</a>
             </div>
             <div className="Menu_botones">
-                <a>Cerrar sesion</a>
+                <a onClick={cerrar_sesion}>Cerrar sesion</a>
             </div>
         </nav>
     );

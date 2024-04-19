@@ -33,7 +33,7 @@ function App() {
         />
         <Route 
         path="/addProd"element={
-          <>
+            <>
               <Nav />
               <AddProd/>
 
