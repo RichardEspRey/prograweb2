@@ -5,6 +5,7 @@ import Formlogin from './Login/form_login';/* Componente de Login */
 import Formregister from './Login/form_register';/* Componente de Registro */
 import Catalogo from './Vendedor/catalogo';/* Componente para buscar en el catalogo */
 import AddProd from './Vendedor/addProd';/* Componente de añadir producto */
+import Inventario from './Vendedor/inventario';/* Componente de añadir producto */
 import Ejemplo from './Vendedor/ejemplo';
 import Nav from './Vendedor/nav';/* Componente de NavBar */
 import { BrowserRouter,Route,Routes } from 'react-router-dom'; 
@@ -14,16 +15,14 @@ function App() {
   
       <Routes>
         {/* Rutas del vendedor */}
-        <Route
-          path="/inicio"element={
+        <Route path="/inicio"element={
             <>
               <Nav />
               <Ejemplo />
             </>
           }
         />
-        <Route
-          path="/catalogo"element={
+        <Route path="/catalogo"element={
             <>
               <Nav />
               <Catalogo />
@@ -31,11 +30,18 @@ function App() {
             </>
           }
         />
-        <Route 
-        path="/addProd"element={
+        <Route path="/addProd"element={
             <>
               <Nav />
               <AddProd/>
+
+            </>
+          }
+        />
+        <Route path="/inventario"element={
+            <>
+              <Nav />
+              <Inventario/>
 
             </>
           }
