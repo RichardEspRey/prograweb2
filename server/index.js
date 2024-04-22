@@ -52,6 +52,29 @@ app.post("/login",(req,resp)=>{
     });
 }); 
 
+app.post("/get",(req,resp)=>{
+    const op = "S"; // Operación a realizar (I para inserción)
+    const id = null; // ID del usuario (solo se usa para la opción S de selección)
+    const nombre = null;
+    const email = req.body.correo;
+    const password = req.body.password;
+    const tipo = null;
+    db.query('CALL pUser(?, ?, ?, ?, ?, ?)', [op, id, nombre, email, password, tipo], (err, result) =>{
+        if(result[0][0].user_exist ==1){
+            let sUserID = result[1][0].userID;
+            let sNombre = result[1][0].nombre;
+            let sEmail = result[1][0].email;
+            let sPassword = result[1][0].password;
+            let sTipo = result[1][0].tipo;
+            resp.send({message:"Login exitoso",exist:1,userID:sUserID,nombre:sNombre,email:sEmail,password:sPassword,tipo:sTipo});//mando a mi back las credenciales del usuario
+        }else{
+            resp.send({message:"Credenciales invalidas",exist:0});
+        }
+       
+         
+    });
+}); 
+
 app.listen(3001,()=>{
     console.log("corriendo en el puerto 3001");
 });

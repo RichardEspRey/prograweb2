@@ -18,6 +18,9 @@
     margin: 20px 0 20px 0;
    
 }
+.contenedor-producto h2{
+    margin: 0 0 20px 0;
+}
 
 .group-labels {
     display: flex;
@@ -42,6 +45,18 @@
     resize:none
 }
 .group-labels input {
+    flex: 2;
+    margin-left: 20px;
+    width: 20px; /* Reducción del ancho de los inputs */
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.group-labels .option {
     flex: 2;
     margin-left: 20px;
     width: 20px; /* Reducción del ancho de los inputs */
